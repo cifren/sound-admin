@@ -38,8 +38,8 @@ npm install sound-admin --save
 
 
 ## Examples
+#### ./adminConfig/ReportConfig.js
 ```js
-// ./adminConfig/ReportConfig.js
 import {AdminConfig} from "sound-admin"
 
 export default class ReportAdminConfig extends AdminConfig {
@@ -73,9 +73,9 @@ export default class ReportAdminConfig extends AdminConfig {
 }
 ```
 
-
+#### ./containers/ReportAdminPage.js
 ```js
-// ./containers/ReportAdminPage.js
+
 import {AdminPage} from 'sound-admin';
 
 var AdminPageInstance = new AdminPage();
@@ -88,8 +88,9 @@ AdminPageInstance.mapStateToProps = (state) => {
 export default AdminPageInstance.connect();
 ```
 
+#### ./reducers/adminConfigReducer.js
 ```js
-// ./reducers/adminConfigReducer.js
+
 import ReportAdminConfig from "../adminConfig/ReportAdminConfig"
 import ItemAdminConfig from "../adminConfig/ItemAdminConfig"
 
@@ -116,8 +117,9 @@ export function itemAdminConfig(state = INITIAL_ITEM_CONFIG, action) {
 };
 ```
 
+#### ./reducers/index.js
 ```js
-// ./reducers/index.js
+
 import {routerReducer} from "react-router-redux";
 import {poolReducer} from 'sound-admin';
 import {restAdminConfig} from "sound-admin";
@@ -134,8 +136,9 @@ const rootReducer = combineReducers(Object.assign({}, {
 export default rootReducer;
 ```
 
+#### ./routes.js
 ```js
-// ./routes.js
+
 // ...
 import ReportAdminPage from "./containers/ReportAdminPage";
 import ItemAdminPage from "./containers/ItemAdminPage";
