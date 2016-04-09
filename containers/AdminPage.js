@@ -1,35 +1,44 @@
 import React from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import CreatePage from "../modules/Admin/components/CreatePage";
-import * as AdminActions from "../modules/Admin/actions/adminAction";
+import Router from "../components/Router";
+import * as AdminActions from "../actions/adminAction";
 import { routerActions } from "react-router-redux";
 
-export default class AdminPage extends React.Component  {
-    mapStateToProps(state, adminConfigReducer){
-      return ((state) => {
-          return {
-            adminConfig: state[adminConfigReducer].adminConfig.init(),
-            pool: state.poolReducer.pool,
-            adminObject: state.restPost
-          }
-        });
-    }
-    
-    mapDispatchToProps(){
-      return (dispatch) => {
+export default class AdminPage extends React.Component {
+  
+  defaultMapStateToProps(state, adminConfigReducer){
+    return (state) => {
+      console.log('map',state)
         return {
-          actions: bindActionCreators(Object.assign({}, AdminActions, routerActions), dispatch)
+          adminConfig: state[adminConfigReducer].adminConfig.init(),
+          pool: state.poolReducer.pool,
+          adminObject: state.restGet,
+          collection: state.restCollection,
+          restPost: state.restPost,
+          restPut: state.restPut,
+          restDelete: state.restDelete
         }
       };
-    }
+  }
     
-    connect(){
-      return connect(this.mapStateToProps, this.mapDispatchToProps)(this.pageSelection());
-    }
-    
-    pageSelection(){
-      console.log('state', this.state)
-      return CreatePage;
-    }
+  defaultMapDispatchToProps(){
+    return ((dispatch) => {
+      return {
+        actions: bindActionCreators(Object.assign({}, AdminActions, routerActions), dispatch)
+      }
+    });
+  }
+  
+  get mapDispatchToProps(){
+    return this._mapDispatchToProps?this._mapDispatchToProps:this.defaultMapDispatchToProps();
+  }
+  
+  set mapDispatchToProps(mapDispatchToProps){
+    this._mapDispatchToProps = mapDispatchToProps;
+  }
+  
+  connect(){
+    return connect(this.mapStateToProps, this.mapDispatchToProps)(Router);
+  }
 }
