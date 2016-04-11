@@ -9,7 +9,6 @@ export default class AdminPage extends React.Component {
   
   defaultMapStateToProps(state, adminConfigReducer){
     return (state) => {
-      console.log('map',state)
         return {
           adminConfig: state[adminConfigReducer].adminConfig.init(),
           pool: state.poolReducer.pool,
