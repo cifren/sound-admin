@@ -11,7 +11,8 @@
   "scripts": {
     "test": "echo 'Error: no test specified' && exit 1",
     "build:lib": "node_modules/babel-cli/bin/babel.js src --out-dir lib",
-    "build": "npm run build:lib"
+    "build": "npm run build:lib",
+    "git": "git add * -A ; git commit -m\"$m\"; git push"
   },
   "babel": {
     "plugins": [

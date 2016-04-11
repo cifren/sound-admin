@@ -10,27 +10,27 @@ export const OPTIONS = {
     };
 export default reduxApi({
   restCollection: {
-    url: `:url/:name.json`,
+    url: `:url/:name`,
     transformer: transformers.array,
     options: OPTIONS
   },
   restGet: { 
-    url: `:url/:name/:id.json`,
+    url: `:url/:name/:id`,
     transformer: transformers.object,
     options: OPTIONS
   },
   restPut: {
-    url: `:url/:name/:id.json`,
+    url: `:url/:name/:id`,
     transformer: transformers.object,
     options: {...OPTIONS, method: "put"}
   },
   restDelete: {
-    url: `:url/:name/:id.json`,
+    url: `:url/:name/:id`,
     transformer: transformers.object,
     options: {...OPTIONS, method: "delete"}
   },
   restPost: {
-    url: `:url/:name.json`,
+    url: `:url/:name`,
     transformer: transformers.object,
     options: {...OPTIONS, method: "post"}
   }
