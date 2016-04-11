@@ -75,7 +75,6 @@ export default class ReportAdminConfig extends AdminConfig {
 
 #### ./containers/ReportAdminPage.js
 ```js
-
 import {AdminPage} from 'sound-admin';
 
 var AdminPageInstance = new AdminPage();

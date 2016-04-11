@@ -1,6 +1,6 @@
 {
   "name": "admin",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A configurable admin interface, equivalent to Sonata-admin on Symfony but smaller",
   "main": "index.js",
   "scripts": {
