@@ -1,10 +1,15 @@
 {
-  "name": "admin",
-  "version": "0.1.0",
+  "name": "sound-admin",
+  "version": "0.1.2",
   "description": "A configurable admin interface, equivalent to Sonata-admin on Symfony but smaller",
   "main": "index.js",
+  "dependencies": {
+    "react-jsonschema-form": "^0.22.0",
+    "redux-api": "^0.9.0",
+    "lodash": "^4.6.1"
+  },
   "scripts": {
-    "test": "echo "Error: no test specified" && exit 1"
+    "test": "echo 'Error: no test specified' && exit 1"
   },
   "repository": {
     "type": "git",
@@ -17,9 +22,21 @@
     "interface",
     "sonata"
   ],
-  "author": "Francis Le Coq <cifren8x@gmail.com> (http://cifren.com/)",
+  "author": {
+    "name": "Francis Le Coq",
+    "email": "cifren8x@gmail.com",
+    "url": "http://cifren.com/"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/cifren/sound-admin/issues"
-  }
+  },
+  "gitHead": "faf40091a474aa77443169afb52c9427fbdbd5ab",
+  "readme": "# sound-admin\nReact module, using redux / rest, create a configurable admin interface\n\n## INTRODUCTION\nSimple to use, simple to reuse, this module allows to create fast admin interface\nfor your rest application.\n\nInspired by [Sonata-Admin](https://sonata-project.org/bundles/admin/2-3/doc/index.html) and \nis intended to be used with [Redux](https://github.com/gaearon/redux) and \n[Redux-Api](https://github.com/lexich/redux-api).\n\n=======\n## Documentation\nSee [DOCS.md](doc/DOCS.md) for API documentation.\n\n=======\n## Install\nwith npm\n```sh\nnpm install sound-admin --save\n```\n\n## Example Structure\n    .\n    ├── ...\n    ├── adminConfig             # Store your config \n    │   ├── ItemConfig.js       # Admin config for 'item' rest object\n    │   └── ReportConfig.js     # Admin config for 'report' rest object\n    ├── containers              # containers files\n    │   ├── ItemAdminPage.js    # define your container component\n    │   └── ReportAdminPage.js  # define your container component\n    ├── reducers                # reducer files\n    │   ├── index.js            # Load and combine reducers\n    │   ├── otherReducer        # fake reducer for the example\n    │   └── someotherReducer    # fake reducer for the example\n    ├── index.js                # initial redux configuration\n    └── routes.js               # your routing\n\n\n## Examples\n#### ./adminConfig/ReportConfig.js\n```js\nimport {AdminConfig} from \"sound-admin\"\n\nexport default class ReportAdminConfig extends AdminConfig {\n  static properties = {\n    \"id\": {\n      \"type\": \"integer\",\n      \"description\": \"Index\",\n      \"default\": null\n    },\n    \"display_name\": {\n      \"type\": \"string\",\n      // default description for all pages\n      \"description\": \"What name do you want ?\",\n      // default label for all pages\n      \"title\": \"Display name\",\n      \"default\": null\n    }\n  };\n  \n  // form page, include create page and edit page\n  configureFormFields(formMapper) {\n    formMapper.add('display_name', 'text', {\"required\": true});\n  }\n\n  // list page\n  configureListFields(listMapper) {\n    listMapper\n      .addIdentifier('id')  // addIdentifier identify it as a link to edit page\n      .add('display_name', {'label': \"Display Name\"});\n  }\n}\n```\n\n#### ./containers/ReportAdminPage.js\n```js\n\nimport {AdminPage} from 'sound-admin';\n\nvar AdminPageInstance = new AdminPage();\n\nAdminPageInstance.mapStateToProps = (state) => {\n    return AdminPageInstance.defaultMapStateToProps(state, 'reportAdminConfig');\n};\n\n//redux connect call\nexport default AdminPageInstance.connect();\n```\n\n#### ./reducers/adminConfigReducer.js\n```js\n\nimport ReportAdminConfig from \"../adminConfig/ReportAdminConfig\"\nimport ItemAdminConfig from \"../adminConfig/ItemAdminConfig\"\n\n// report reducer\nconst INITIAL_REPORT_CONFIG = {\n    adminConfig: new ReportAdminConfig()\n};\nexport function reportAdminConfig(state = INITIAL_REPORT_CONFIG, action) {\n    switch (action.type) {\n      default:\n        return state;\n    }\n};\n\n// item reducer\nconst INITIAL_ITEM_CONFIG = {\n    adminConfig: new ItemAdminConfig()\n};\nexport function itemAdminConfig(state = INITIAL_ITEM_CONFIG, action) {\n    switch (action.type) {\n      default:\n        return state;\n    }\n};\n```\n\n#### ./reducers/index.js\n```js\n\nimport {routerReducer} from \"react-router-redux\";\nimport {poolReducer} from 'sound-admin';\nimport {restAdminConfig} from \"sound-admin\";\nimport {reportAdminConfig, itemAdminConfig} from './adminConfigReducer';\n\nconst rootReducer = combineReducers(Object.assign({}, {\n  routing: routerReducer,       // your routing reducer\n  poolReducer                   // define the pool needed by sound-admin\n  reportAdminConfig,            // define your report reducer\n  itemAdminConfig,              // define your item reducer\n}, restAdminConfig.reducers     // define the rest configuration to access the data\n));\n\nexport default rootReducer;\n```\n\n#### ./routes.js\n```js\n\n// ...\nimport ReportAdminPage from \"./containers/ReportAdminPage\";\nimport ItemAdminPage from \"./containers/ItemAdminPage\";\n// ...\n\nexport default (\n  <Route path=\"/\" component={App}>\n    <Route path=\"report/:adminPageType(/:id)\" component={ReportAdminPage} />\n    <Route path=\"item/:adminPageType(/:id)\" component={ItemAdminPage} />\n    <Route path=\"*\" component={NoMatch}/>\n  </Route>\n);\n```\n",
+  "readmeFilename": "README.md",
+  "homepage": "https://github.com/cifren/sound-admin#readme",
+  "_id": "sound-admin@0.0.0",
+  "_shasum": "f502ef2e0e4a8790c94695d24ce447de897eef9d",
+  "_from": "git+https://github.com/cifren/sound-admin.git",
+  "_resolved": "git+https://github.com/cifren/sound-admin.git#faf40091a474aa77443169afb52c9427fbdbd5ab"
 }
