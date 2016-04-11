@@ -89,9 +89,8 @@ export default AdminPageInstance.connect();
 
 #### ./reducers/adminConfigReducer.js
 ```js
-
-import ReportAdminConfig from "../adminConfig/ReportAdminConfig"
-import ItemAdminConfig from "../adminConfig/ItemAdminConfig"
+import ReportAdminConfig from "../adminConfig/ReportAdminConfig";
+import ItemAdminConfig from "../adminConfig/ItemAdminConfig";
 
 // report reducer
 const INITIAL_REPORT_CONFIG = {
@@ -102,7 +101,7 @@ export function reportAdminConfig(state = INITIAL_REPORT_CONFIG, action) {
       default:
         return state;
     }
-};
+}
 
 // item reducer
 const INITIAL_ITEM_CONFIG = {
@@ -113,20 +112,21 @@ export function itemAdminConfig(state = INITIAL_ITEM_CONFIG, action) {
       default:
         return state;
     }
-};
+}
 ```
 
 #### ./reducers/index.js
 ```js
-
+// ...
 import {routerReducer} from "react-router-redux";
 import {poolReducer} from 'sound-admin';
 import {restAdminConfig} from "sound-admin";
 import {reportAdminConfig, itemAdminConfig} from './adminConfigReducer';
+// ...
 
 const rootReducer = combineReducers(Object.assign({}, {
   routing: routerReducer,       // your routing reducer
-  poolReducer                   // define the pool needed by sound-admin
+  poolReducer,                  // define the pool needed by sound-admin
   reportAdminConfig,            // define your report reducer
   itemAdminConfig,              // define your item reducer
 }, restAdminConfig.reducers     // define the rest configuration to access the data
@@ -147,7 +147,7 @@ export default (
   <Route path="/" component={App}>
     <Route path="report/:adminPageType(/:id)" component={ReportAdminPage} />
     <Route path="item/:adminPageType(/:id)" component={ItemAdminPage} />
-    <Route path="*" component={NoMatch}/>
+    <Route path="*" component={_ => <h1>Page not found.</h1>}/>
   </Route>
 );
 ```
