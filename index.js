@@ -17,7 +17,7 @@ var _Rest2 = _interopRequireDefault(_Rest);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-exports.PoolReducer = _PoolReducer2["default"];
+exports.poolReducer = _PoolReducer2["default"];
+exports.rest = _Rest2["default"];
 exports.AdminConfig = _AdminConfig2["default"];
 exports.AdminPage = _AdminPage2["default"];
-exports.Rest = _Rest2["default"];
