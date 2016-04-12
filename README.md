@@ -11,7 +11,8 @@ is intended to be used with [Redux](https://github.com/gaearon/redux).
 =======
 ## Documentation
 See [DOCS.md](doc/DOCS.md) for API documentation.
-
+## Demo
+See [Sound-Admin](http://sound-admin.herokuapp.com)
 =======
 ## Install
 with npm
