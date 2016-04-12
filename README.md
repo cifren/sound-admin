@@ -119,7 +119,7 @@ export function itemAdminConfig(state = INITIAL_ITEM_CONFIG, action) {
 // ...
 import {routerReducer} from "react-router-redux";
 import {poolReducer} from 'sound-admin';
-import {restAdminConfig} from "sound-admin";
+import {rest} from "sound-admin";
 import {reportAdminConfig, itemAdminConfig} from './adminConfigReducer';
 // ...
 
@@ -128,7 +128,7 @@ const rootReducer = combineReducers(Object.assign({}, {
   poolReducer,                  // define the pool needed by sound-admin
   reportAdminConfig,            // define your report reducer
   itemAdminConfig,              // define your item reducer
-}, restAdminConfig.reducers     // define the rest configuration to access the data
+}, rest.reducers     // define the rest configuration to access the data
 ));
 
 export default rootReducer;
