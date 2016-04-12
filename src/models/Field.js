@@ -1,8 +1,8 @@
 export default class Field {
   
-  constructor(fieldName, type = null, options = {}){
+  constructor(fieldName, widget = null, options = {}){
     this.fieldName = fieldName;
-    this.type = type;
+    this.widget = widget;
     this.options = options;
   }
   

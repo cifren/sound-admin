@@ -1,7 +1,12 @@
+import SchemaBuilder from "./Schema/SchemaBuilder";
+
 export default class Pool {
-  constructor(adminConfig, restData){
+  constructor(adminConfig, restData, schemaBuilder){
     this._adminConfig = adminConfig;
     this._restData = restData;
+    if(!schemaBuilder){
+      this.schemaBuilder = new SchemaBuilder();
+    }
   }
   
   get title(){
@@ -52,16 +57,27 @@ export default class Pool {
   }
   
   get schema(){
-    return {
-      type: 'object',
-      required: this.getRequiredFields(),
-      properties : this.getSelectedProperties(this._adminConfig.formMapper)
-    }
+    return this.jsonSchema.schema;
   }
   
   get uiSchema(){
-    return {};
+    return this.jsonSchema.uiSchema;
   }
+  
+  get jsonSchema(){
+    if(!this._jsonSchema){
+      this.jsonSchema = this.schemaBuilder.getJsonSchema(
+        this._adminConfig.formMapper,
+        this._adminConfig.constructor.properties
+      );
+    }
+    console.log(this._jsonSchema)
+    return this._jsonSchema;
+  }
+  
+  set jsonSchema(jsonSchema){
+    this._jsonSchema = jsonSchema;
+  } 
   
   getRequiredFields(){
     var requiredFields = [];
@@ -94,5 +110,13 @@ export default class Pool {
   
   get formName(){
     return this._adminConfig.formName;
+  }
+  
+  set schemaBuilder(schemaBuilder){
+    this._schemaBuilder = schemaBuilder;
+  }
+  
+  get schemaBuilder(){
+    return this._schemaBuilder;
   }
 }
