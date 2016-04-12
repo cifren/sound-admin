@@ -59,7 +59,15 @@ export default class AdminConfig {
   }
   
   get formName(){
-    return (this._formName)?this._formName:this.restName;
+    return (this._formName)?this._formName:null;
+  }
+  
+  set urlPrefix(urlPrefix){
+    this._urlPrefix = urlPrefix;
+  }
+  
+  get urlPrefix(){
+    return this._urlPrefix || this.adminName;
   }
   
   // form page, include create page and edit page

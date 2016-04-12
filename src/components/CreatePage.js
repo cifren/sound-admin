@@ -43,7 +43,6 @@ export default class CreatePage extends React.Component {
   }
   
   render() {
-    console.log('renderC', this.state.pool)
     return (
       <div>
         <Form actions={this.props.actions} pool={this.state.pool} onSubmit={this.onSubmit.bind(this)}></Form>

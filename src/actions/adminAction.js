@@ -70,7 +70,7 @@ export function postObject(restUrl, restName, formName, object) {
   return (dispatch) => {
     dispatch(rest.actions.restPost(
       {url: restUrl, name: restName},
-      { body: JSON.stringify({[formName]: object })}
+      { body: JSON.stringify(buildFormObject(formName, object))}
     ));
   };
 }
@@ -79,7 +79,7 @@ export function putObject(restUrl, restName, formName, id, object) {
   return (dispatch) => {
     dispatch(rest.actions.restPut(
       {url: restUrl, name: restName, id},
-      { body: JSON.stringify({[formName]: object })}
+      { body: JSON.stringify(buildFormObject(formName, object))}
     ));
   };
 }
@@ -97,4 +97,12 @@ export function updatePoolError(restPut){
     type: UPDATE_POOL_ERROR,
     restPut
   }
+}
+
+export function buildFormObject(formName, object){
+  var formObject = object;
+  if(formName){
+    formObject = {[formName]: object};
+  }
+  return formObject;
 }

@@ -48,7 +48,7 @@ export default class Pool {
   }
   
   get urlPrefix() {
-    return (this._adminConfig.urlPrefix)?this._adminConfig.urlPrefix:this._adminConfig.adminName;
+    return this._adminConfig.urlPrefix;
   }
   
   get schema(){
