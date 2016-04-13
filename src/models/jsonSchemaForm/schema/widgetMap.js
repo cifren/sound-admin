@@ -1,3 +1,5 @@
+import AutocompleteWidget from "../components/widget/AutocompleteWidget";
+
 export const widgetMap = {
   boolean: {
     radio: "radio",
@@ -23,6 +25,7 @@ export const widgetMap = {
     updown: "upDown",
     range: "range",
     hidden: "hidden",
+    autocomplete: AutocompleteWidget,
     text: 'default'
   }
 };

@@ -1,4 +1,4 @@
-import SchemaBuilder from "./Schema/SchemaBuilder";
+import SchemaBuilder from "./schema/SchemaBuilder";
 
 export default class Pool {
   constructor(adminConfig, restData, schemaBuilder){
