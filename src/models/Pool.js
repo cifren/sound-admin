@@ -71,7 +71,6 @@ export default class Pool {
         this._adminConfig.constructor.properties
       );
     }
-    console.log(this._jsonSchema)
     return this._jsonSchema;
   }
   

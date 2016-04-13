@@ -7,7 +7,7 @@ The admin use (react-jsonschema-form)[https://github.com/mozilla-services/react-
 
   * `radio`: a radio button group with `true` and `false` as selectable values;
   * `select`: a select box with `true` and `false` as options;
-  * by default, a checkbox is used
+  * `checkbox` by default
 
 > Note: To set the labels for a boolean field, instead of using `true` and `false` 
 you can set `enumNames` in your mapper. The order is always `[true, false]`.
@@ -16,7 +16,7 @@ you can set `enumNames` in your mapper. The order is always `[true, false]`.
 
   * `textarea`: a `textarea` element is used;
   * `password`: an `input[type=password]` element is used;
-  * by default, a regular `input[type=text]` element is used.
+  * `text` by default, a regular `input[type=text]` element is used.
 
 The built-in string field also supports the JSONSchema `format` property, and 
 will render an appropriate widget by default for the following formats:
@@ -30,7 +30,7 @@ will render an appropriate widget by default for the following formats:
 
   * `updown`: an `input[type=number]` updown selector;
   * `range`: an `input[type=range]` slider;
-  * by default, a regular `input[type=text]` element is used.
+  * `text` default, a regular `input[type=text]` element is used.
 
 > Note: for numbers, `min`, `max` and `step` input attributes values will be 
 handled according to `minimum`, `maximium` and `multipleOf` values when they're defined.
