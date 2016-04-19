@@ -26,7 +26,7 @@ export default class Form extends React.Component {
       <div>
         <div class="row">
           <div class="col-lg-12">
-              <h1 class="page-header">Data Edit <Loading active={pool.loading}></Loading></h1>
+              <h1 class="page-header">{pool.title} <Loading active={pool.loading}></Loading></h1>
           </div>
         </div>
         

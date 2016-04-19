@@ -49,7 +49,6 @@ export default class ComboAutocompleteWidget extends BaseAutocompleteWidget {
   }
   
   render(){
-    console.log("render");
     return (
       <div>
         <div class="input-group">
