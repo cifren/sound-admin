@@ -1,4 +1,4 @@
-import SchemaBuilder from "./schema/SchemaBuilder";
+import SchemaBuilder from "./jsonSchemaForm/schema/SchemaBuilder";
 
 export default class Pool {
   constructor(adminConfig, restData, schemaBuilder){
@@ -13,11 +13,11 @@ export default class Pool {
     return this._adminConfig.title;
   }
   
-  getFields(type = 'list'){
-    var mapperType = '';
+  getFields(type = "list"){
+    var mapperType = "";
     switch (type) {
-      case 'list':
-        mapperType = 'listMapper';
+      case "list":
+        mapperType = "listMapper";
         break;
         
       default:
@@ -81,7 +81,7 @@ export default class Pool {
   getRequiredFields(){
     var requiredFields = [];
     this._adminConfig.formMapper.list.map((field) => {
-      if(field.getOption('required')){
+      if(field.getOption("required")){
         requiredFields.push(field.fieldName);
       }
     });
@@ -117,5 +117,15 @@ export default class Pool {
   
   get schemaBuilder(){
     return this._schemaBuilder;
+  }
+  
+  receiveRequestTransformer(request, pageType){
+    var data = request.data;
+    data = this._adminConfig.receiveRequestTransformer(data, pageType);
+    return {...request, data};
+  }
+  
+  formRequestTransformer(request, pageType){
+    return this._adminConfig.formRequestTransformer(request, pageType);
   }
 }

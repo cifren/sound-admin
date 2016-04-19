@@ -1,7 +1,7 @@
-import FormMapper from './mappers/FormMapper';
-import ListMapper from './mappers/ListMapper';
-import ShowMapper from './mappers/ShowMapper';
-import RouteCollection from './routes/RouteCollection';
+import FormMapper from "./mappers/FormMapper";
+import ListMapper from "./mappers/ListMapper";
+import ShowMapper from "./mappers/ShowMapper";
+import RouteCollection from "./routes/RouteCollection";
 
 export default class AdminConfig {
   static properties;
@@ -86,7 +86,17 @@ export default class AdminConfig {
 
   checkName() {
     if (!this._adminName) {
-      throw ('The value \'adminName\' is missing');
+      throw ("The value 'adminName' is missing");
     }
+  }
+  
+  //when page receive data on get
+  receiveRequestTransformer(request, pageType){
+    return request;
+  }
+  
+  //when form will emit request
+  formRequestTransformer(request, pageType){
+    return request;
   }
 }

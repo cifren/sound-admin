@@ -2,7 +2,7 @@ import React from "react";
 import Loading from "../components/Loading";
 import {Link} from "react-router";
 import ReactJsonForm from "react-jsonschema-form";
-import {isEmpty} from 'lodash';
+import {isEmpty} from "lodash";
 
 export default class Form extends React.Component {
   onSubmit(data) {
@@ -77,8 +77,7 @@ export class ActionList extends React.Component {
 }
 
 class Errors extends React.Component {
- render() {
-   
+  render() {
     if(isEmpty(this.props.error)){
       return false;
     } 
@@ -100,7 +99,7 @@ class Errors extends React.Component {
         </ul>
       </div>
     );
- }
+  }
 }
 class ErrorDetails extends React.Component {
   render(){

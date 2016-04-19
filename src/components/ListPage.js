@@ -1,6 +1,6 @@
 import React from "react";
 import List from "./List";
-import {isEqual} from 'lodash';
+import {isEqual, isEmpty} from "lodash";
 
 export default class ListPage extends React.Component {
   constructor(props){
@@ -23,7 +23,10 @@ export default class ListPage extends React.Component {
     }
     
     if(!isEqual(this.props.collection, nextProps.collection)){
-      this.props.actions.setCollection(nextProps.collection);
+      var collection = !isEmpty(this.props.pool)?
+        this.props.pool.receiveRequestTransformer(nextProps.collection, "list"):
+        nextProps.collection;
+      this.props.actions.setCollection(collection);
     }
   }
   

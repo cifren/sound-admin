@@ -1,7 +1,7 @@
 import React from "react";
 import Loading from "../components/Loading";
 import {Link} from "react-router";
-import {isArray} from 'lodash';
+import {isArray} from "lodash";
 
 export default class List extends React.Component {
   render() {
@@ -30,7 +30,7 @@ export default class List extends React.Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
@@ -49,9 +49,9 @@ class Table extends React.Component {
           <tr>
             <th></th>
             {
-              pool.getFields('list').map(function (field, key) {
+              pool.getFields("list").map(function (field, key) {
                 return (
-                  <th key={key}>{field.getOption('label')}</th>
+                  <th key={key}>{field.getOption("label")}</th>
                 );
               }.bind(this))
             }
@@ -83,12 +83,12 @@ class Row extends React.Component {
     return (
       <tbody>
           {
-            !isArray(pool.restData.data)?'':pool.restData.data.map(function (item, key) {
+            !isArray(pool.restData.data)?"":pool.restData.data.map(function (item, key) {
               return (
                 <tr key={key}>
                   <td><i class="fa fa-th-large"></i></td>
                   {
-                    pool.getFields('list').map(function (column) {
+                    pool.getFields("list").map(function (column) {
                       return (
                         <Cell key={key + column.fieldName} pool={pool} item={item} column={column}></Cell>
                       );

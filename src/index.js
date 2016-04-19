@@ -1,18 +1,18 @@
 //pool / admin config / rest
-'use strict';
+"use strict";
 
 exports.__esModule = true;
 
-var _PoolReducer = require('./lib/reducers/adminReducer');
+var _PoolReducer = require("./reducers/adminReducer");
 var _PoolReducer2 = _interopRequireDefault(_PoolReducer.pool);
 
-var _AdminConfig = require('./lib/models/AdminConfig');
+var _AdminConfig = require("./models/AdminConfig");
 var _AdminConfig2 = _interopRequireDefault(_AdminConfig);
 
-var _AdminPage = require('./lib/containers/AdminPage');
+var _AdminPage = require("./containers/AdminPage");
 var _AdminPage2 = _interopRequireDefault(_AdminPage);
 
-var _Rest = require('./lib/rests/rest');
+var _Rest = require("./rests/rest");
 var _Rest2 = _interopRequireDefault(_Rest);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }

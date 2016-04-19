@@ -1,14 +1,15 @@
 import React from "react";
+import BaseAutocompleteWidget from "./BaseAutocompleteWidget";
 
-export default class AutocompleteWidget extends React.Component {
+export default class AutocompleteWidget extends BaseAutocompleteWidget {
   render(){
-    const props = this.props;
     return (
-      <input type="text"
-          className="custom"
-          value={props.value}
-          required={props.required}
-          onChange={(event) => props.onChange(event.target.value)} />  
+      <input 
+        value={this.state.label}
+        class='form-control dropdown-input' 
+        id={"autocomplete" + this.uniqId} 
+        onChange={this.onChange.bind(this)}
+        />
     );
   }
 }

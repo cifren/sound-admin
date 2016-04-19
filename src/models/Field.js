@@ -19,13 +19,13 @@ export default class Field {
   }
   
   set options(options = {}){
-    if(!options['label']){
-      options['label'] = this.fieldName;
+    if(!options["label"]){
+      options["label"] = this.fieldName;
     }
     
     Object.entries(options).map((item) => {
       this.setOption(item[0], item[1]);
-    })
+    });
   }
   
   setOption(key, item){
@@ -37,7 +37,7 @@ export default class Field {
   }
   
   getLabel(){
-    return this._options['label'];
+    return this._options["label"];
   }
   
 }

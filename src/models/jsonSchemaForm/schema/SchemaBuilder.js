@@ -10,10 +10,10 @@ export default class SchemaBuilder {
   
   getSchema(formMapper, properties){
     return {
-      type: 'object',
+      type: "object",
       required: this._getRequiredFields(formMapper),
       properties : this._getSelectedProperties(formMapper)
-    }
+    };
   }
   
   getUiSchema(formMapper){
@@ -44,7 +44,7 @@ export default class SchemaBuilder {
       case null:
         return widget;
       // default cases, no widget  
-      case 'default':
+      case "default":
         return null;
       // get the widget from the mapping
       default:
@@ -55,7 +55,7 @@ export default class SchemaBuilder {
   // merge fields with properties from config
   _attachPropertiesToFields(formMapper, properties){
     formMapper.list.map((field) => {
-      field.property = properties[field.fieldName]
+      field.property = properties[field.fieldName];
     });
   }
   
@@ -63,7 +63,7 @@ export default class SchemaBuilder {
   _getRequiredFields(formMapper){
     var requiredFields = [];
     formMapper.list.map((field) => {
-      if(field.getOption('required')){
+      if(field.getOption("required")){
         requiredFields.push(field.fieldName);
       }
     });

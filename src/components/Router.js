@@ -7,11 +7,11 @@ export default class Router extends React.Component {
   
   render(){
     switch (this.props.params.adminPageType) {
-      case 'list':
+      case "list":
         return (<ListPage {...this.props}/>);
-      case 'create':
+      case "create":
         return (<CreatePage {...this.props}/>);
-      case 'edit':
+      case "edit":
         return (<EditPage {...this.props}/>);
       default:
         return (<ListPage {...this.props}/>);

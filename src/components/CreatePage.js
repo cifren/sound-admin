@@ -1,11 +1,11 @@
 import React from "react";
 import Form from "./Form";
-import {isEqual, isEmpty} from 'lodash';
-import {formatPattern} from 'react-router';
+import {isEqual} from "lodash";
+import {formatPattern} from "react-router";
 
 export default class CreatePage extends React.Component {
   constructor(props){
-    super(props)
+    super(props);
     this.state = {
       pool: {}
     };
@@ -34,7 +34,7 @@ export default class CreatePage extends React.Component {
       this.props.pool.restUrl,
       this.props.pool.restName,
       this.props.pool.formName, 
-      data.formData
+      this.props.pool.formRequestTransformer(data.formData, "create")
       );
   }
   

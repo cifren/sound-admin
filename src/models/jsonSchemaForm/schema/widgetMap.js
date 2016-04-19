@@ -1,11 +1,12 @@
 import AutocompleteWidget from "../components/widget/AutocompleteWidget";
+import ComboAutocompleteWidget from "../components/widget/ComboAutocompleteWidget";
 
 export const widgetMap = {
   boolean: {
     radio: "radio",
     select: "select",
     hidden: "hidden",
-    checkbox: 'default'
+    checkbox: "default"
   },
   string: {
     password: "password",
@@ -13,19 +14,22 @@ export const widgetMap = {
     select: "select",
     textarea: "textarea",
     hidden: "hidden",
-    text: 'default'
+    text: "default",
+    autocomplete: AutocompleteWidget,
+    comboautocomplete: ComboAutocompleteWidget
   },
   number: {
     updown: "upDown",
     range: "range",
     hidden: "hidden",
-    text: 'default'
+    text: "default"
   },
   integer: {
     updown: "upDown",
     range: "range",
     hidden: "hidden",
     autocomplete: AutocompleteWidget,
-    text: 'default'
+    comboautocomplete: ComboAutocompleteWidget,
+    text: "default"
   }
 };

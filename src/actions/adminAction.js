@@ -96,7 +96,7 @@ export function updatePoolError(restPut){
   return {
     type: UPDATE_POOL_ERROR,
     restPut
-  }
+  };
 }
 
 export function buildFormObject(formName, object){

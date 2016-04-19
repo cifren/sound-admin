@@ -8,7 +8,7 @@ export default class BaseMapper {
   
   add(name, type, options = {}){
     if(!this.properties[name]){
-      throw('Property \'' + name + "' does'nt exist");
+      throw("Property '" + name + "' does'nt exist");
     }
     
     const field = new Field(name, type, options);
