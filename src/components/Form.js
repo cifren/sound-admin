@@ -67,7 +67,7 @@ export class ActionList extends React.Component {
         {
           (() => {
             if(pool.restData.data.id){
-              return <a class="btn btn-danger" onClick={this.props.onDelete}><i class="fa fa-times"> Delete</i></a>;
+              return <a class="btn btn-danger" onClick={this.props.onDelete}><i class="fa fa-times"> Delete</i></a>
             }
           })()
         }
