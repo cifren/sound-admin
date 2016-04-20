@@ -1,5 +1,6 @@
 # sound-admin
 React module, using redux / rest, create a configurable admin interface
+[![Build Status](https://travis-ci.org/cifren/sound-admin.svg)](https://travis-ci.org/cifren/sound-admin)
 
 ## INTRODUCTION
 Simple to use, simple to reuse, this module allows to create fast admin interface
