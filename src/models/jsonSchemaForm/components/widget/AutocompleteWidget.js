@@ -6,7 +6,7 @@ export default class AutocompleteWidget extends BaseAutocompleteWidget {
     return (
       <input 
         value={this.state.label}
-        class='form-control dropdown-input' 
+        class='form-control dropdown-input'
         id={"autocomplete" + this.uniqId} 
         onChange={this.onChange.bind(this)}
         />

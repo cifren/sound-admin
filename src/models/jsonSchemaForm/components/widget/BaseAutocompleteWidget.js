@@ -106,7 +106,7 @@ export default class BaseAutocompleteWidget extends React.Component {
       minChars: this.getOption("minChar"),
       list: this.state.ajaxData,
       replace: this.onReplace(input),
-      autoFirst: this.getOption("auto_first")?true:false,
+      autoFirst: this.getOption("autoFirst")?true:false,
       filter: this.filter()
     });
   }
@@ -136,7 +136,7 @@ export default class BaseAutocompleteWidget extends React.Component {
     const props = this.props;
     return {
       // when popup open, first item is selected
-      "auto_first": acOptions["auto_first"]?acOptions["only_values"]:false,
+      "autoFirst": acOptions["autoFirst"]?acOptions["autoFirst"]:false,
       // values to display in th popup
       "values": acOptions["values"]?acOptions["values"]:null,
       // if true, data is needed to validate the form
