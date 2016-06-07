@@ -7,7 +7,7 @@ import { routerActions } from "react-router-redux";
 export default class AdminPage {
   
   constructor(){
-    this.mapDispatchToProps = (dispatch) => {return this.defaultMapDispatchToProps(dispatch)};
+    this.mapDispatchToProps = (dispatch) => {return this.defaultMapDispatchToProps(dispatch);};
   }
   
   defaultMapStateToProps(state, adminConfigReducer){
