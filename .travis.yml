@@ -8,3 +8,6 @@ env:
 - ACTION="run build"
 script:
 - npm $ACTION
+notifications:
+  email:
+    -  cifren@msn.com
