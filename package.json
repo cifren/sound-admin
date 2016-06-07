@@ -4,6 +4,7 @@
   "description": "A configurable admin interface, equivalent to Sonata-admin on Symfony but smaller",
   "main": "lib/index.js",
   "dependencies": {
+    "react": "^0.14.8",
     "awesomplete": "^1.1.0",
     "lodash": "^4.6.1",
     "react-autocomplete": "^1.0.0-rc2",
